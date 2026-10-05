@@ -7,6 +7,7 @@ import 'team.dart';
 import 'project.dart';
 import 'menu.dart';
 import 'form.dart';
+import 'login.dart';
 
 class Home extends StatelessWidget {
   Home({super.key, required this.useMaterial3});
@@ -70,6 +71,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('iNet'),
         actions: [MenuButton(useMaterial3: useMaterial3)],
+        leading: const Login(),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(12.0),
@@ -91,7 +93,7 @@ class Home extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   child: InkWell(
                     borderRadius: BorderRadius.circular(16),
-                    hoverColor: Colors.white.withOpacity(0.25),
+                    hoverColor: Colors.white.withValues(alpha: 0.25),
                     onTap: () => _navigateToNextScreen(context, index),
                     child: Center(
                       child: Text(
@@ -149,6 +151,8 @@ class Home extends StatelessWidget {
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
+                            wordSpacing: 5,
+                            letterSpacing: 2,
                           ),
                         ),
                         SizedBox(height: 50),

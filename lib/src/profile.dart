@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'menu.dart';
+import 'form.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key, required this.useMaterial3});
@@ -8,30 +9,42 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Profil',
-      theme: ThemeData(useMaterial3: useMaterial3),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Profilul meu'),
-          actions: [MenuButton(useMaterial3: useMaterial3)],
-        ),
-        body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('iNet'),
+        actions: [MenuButton(useMaterial3: useMaterial3)],
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const CircleAvatar(
-                radius: 50,
-                // backgroundImage: AssetImage(
-                // ),
-              ),
+              const CircleAvatar(radius: 50),
               const SizedBox(height: 16),
               const Text(
-                'Nume:',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                'Profilul meu',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
+                ),
               ),
-              const SizedBox(height: 15),
-              const Text('Email:', style: TextStyle(fontSize: 16)),
+              const SizedBox(height: 24),
+              const Text(
+                'Username',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 12),
+              const Text('Nume'),
+              const SizedBox(height: 8),
+              const Text('Email'),
+              const Divider(height: 32, color: Colors.grey),
+              const Text(
+                'Formular de asistenta',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              const Formular(),
             ],
           ),
         ),

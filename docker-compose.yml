@@ -1,0 +1,19 @@
+services:
+  auth-server:
+    image: keycloak/keycloak:latest
+    container_name: keycloak-service
+
+    command: start-dev
+
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: "true"
+
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+
+      KC_HEALTH_ENABLED: "true"
+
+    ports:
+      - "8080:8080"
